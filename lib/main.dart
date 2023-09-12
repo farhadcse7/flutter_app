@@ -22,23 +22,33 @@ class HomeScreen extends StatelessWidget{
   MySnackBar(message,context){
     return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
   }
+  MyAlertDialog(context){
+    return showDialog(context: context, builder: (BuildContext context){
+      return Expanded(child: AlertDialog(
+        title: Text("Alert!"),
+        content: Text("do you want to delete"),
+        actions: [
+        TextButton(onPressed: (){MySnackBar("Delete Successful", context);}, child: Text("yes")),
+        TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text("no")),],
+      ),);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     ButtonStyle buttonStyle=ElevatedButton.styleFrom(
       padding: EdgeInsets.all(10), 
       backgroundColor: Colors.pink,
-      foregroundColor: Colors.red,
+      foregroundColor: Colors.black,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(40))),
       );
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.red, title: const Text('home'), ),
-      body: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        TextButton(onPressed: (){MySnackBar('text my message', context);}, child: Text('Text Button')),
-        ElevatedButton(onPressed: (){MySnackBar('elevated my message', context);}, child: Text('Elevated Button'),style: buttonStyle,),
-        OutlinedButton(onPressed: (){MySnackBar('out my message', context);}, child: Text('Outline Button')),
-      ],),
+      body: Center(child: ElevatedButton(child: Text("click me"), onPressed: () {
+        MyAlertDialog(context);
+      },),
+        
+      )
     );
   }
 }
