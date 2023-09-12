@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     ButtonStyle buttonStyle=ElevatedButton.styleFrom(
       padding: EdgeInsets.all(10), 
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.pink,
       foregroundColor: Colors.red,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(40))),
