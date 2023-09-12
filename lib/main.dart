@@ -15,21 +15,21 @@ class MyApp extends StatelessWidget{
   }
 }
 
-
 class HomeScreen extends StatelessWidget{
    HomeScreen({super.key});
 
   var MyItems=[
-    {"img":"https://rabbil.com/files/mernX.png", "title":"1"},
-    {"img":"https://rabbil.com/files/mernX.png", "title":"2"},
-    {"img":"https://rabbil.com/files/mernX.png", "title":"3"},
-    {"img":"https://rabbil.com/files/mernX.png", "title":"4"},
-    {"img":"https://rabbil.com/files/mernX.png", "title":"5"},
-    {"img":"https://rabbil.com/files/mernX.png", "title":"6"},
-    {"img":"https://rabbil.com/files/mernX.png", "title":"7"},
-    {"img":"https://rabbil.com/files/mernX.png", "title":"8"},
-    {"img":"https://rabbil.com/files/mernX.png", "title":"9"},
+    {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR34hPo9zGkYxB2NKePgvPeImdm-CDTsHPrt4DFUyU_4A&s", "title":"1"},
+    {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR34hPo9zGkYxB2NKePgvPeImdm-CDTsHPrt4DFUyU_4A&s", "title":"2"},
+    {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR34hPo9zGkYxB2NKePgvPeImdm-CDTsHPrt4DFUyU_4A&s", "title":"3"},
+    {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR34hPo9zGkYxB2NKePgvPeImdm-CDTsHPrt4DFUyU_4A&s", "title":"4"},
+    {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR34hPo9zGkYxB2NKePgvPeImdm-CDTsHPrt4DFUyU_4A&s", "title":"5"},
+    {"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR34hPo9zGkYxB2NKePgvPeImdm-CDTsHPrt4DFUyU_4A&s", "title":"6"},
   ];
+
+  mySnackBar(context,msg){
+    return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget{
         itemCount: MyItems.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {},
+            onTap: () {mySnackBar(context, MyItems[index]['title']);},
             child: Container(
               margin: EdgeInsets.all(10),
               width: double.infinity,
