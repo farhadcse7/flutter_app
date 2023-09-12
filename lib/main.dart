@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       home: HomeScreen(),
       title: 'ostad app',
     );
@@ -17,26 +17,38 @@ class MyApp extends StatelessWidget{
 
 
 class HomeScreen extends StatelessWidget{
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+
+  var MyItems=[
+    {"img":"https://rabbil.com/files/mernX.png", "title":"1"},
+    {"img":"https://rabbil.com/files/mernX.png", "title":"2"},
+    {"img":"https://rabbil.com/files/mernX.png", "title":"3"},
+    {"img":"https://rabbil.com/files/mernX.png", "title":"4"},
+    {"img":"https://rabbil.com/files/mernX.png", "title":"5"},
+    {"img":"https://rabbil.com/files/mernX.png", "title":"6"},
+    {"img":"https://rabbil.com/files/mernX.png", "title":"7"},
+    {"img":"https://rabbil.com/files/mernX.png", "title":"8"},
+    {"img":"https://rabbil.com/files/mernX.png", "title":"9"},
+  ];
 
   @override
   Widget build(BuildContext context) {
-    ButtonStyle buttonStyle=ElevatedButton.styleFrom(
-      minimumSize: Size(double.infinity, 60),
-      );
-
+    
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.red, title: const Text('home'), ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-        Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(labelText: 'First Name', border: OutlineInputBorder()),),),
-        Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(labelText: 'First Name', border: OutlineInputBorder()),),),
-        Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(labelText: 'First Name', border: OutlineInputBorder()),),),
-        Padding(padding: EdgeInsets.all(10), child: ElevatedButton(onPressed: () {
-        },child: Text('Submit'), style: buttonStyle,),),
-        ],
-      )
+      body: ListView.builder(
+        itemCount: MyItems.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {},
+            child: Container(
+              margin: EdgeInsets.all(10),
+              width: double.infinity,
+              height: 200,
+              child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,)
+            ),
+          );
+        },)
     );
   }
 }
