@@ -45,6 +45,7 @@ class HomeScreen extends StatelessWidget{
 }
 
 class Activity1 extends StatelessWidget{
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
